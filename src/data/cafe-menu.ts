@@ -7,8 +7,8 @@ export const cafeMenu = {
       price: 120,
       description: "Traditional Nepali tea with milk, sugar, and spices",
       variants: [
-        { name: "Regular", price: 120 },
-        { name: "Large", price: 150 }
+        { name: "Regular", price: 70 },
+        { name: "Large", price: 140 }
       ]
     },
     {
@@ -17,8 +17,8 @@ export const cafeMenu = {
       price: 100,
       description: "Spiced milk tea with cardamom, cinnamon and cloves",
       variants: [
-        { name: "Regular", price: 100 },
-        { name: "Large", price: 130 }
+        { name: "Regular", price: 50 },
+        { name: "Large", price: 100 }
       ]
     },
     {

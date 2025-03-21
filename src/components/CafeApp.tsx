@@ -64,7 +64,7 @@ const CafeApp = () => {
   return (
     <div className="w-full max-w-6xl mx-auto">
       <header className="mb-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 font-mono">HIMALAYAN CAFÉ RECEIPT GENERATOR</h1>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 font-mono">COOL CAFÉ KTM</h1>
         <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
           Select menu items to create a vintage-style receipt for your café
         </p>
