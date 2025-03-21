@@ -40,10 +40,10 @@ const MenuSection: React.FC<MenuSectionProps> = ({
           <button
             key={category.id}
             onClick={() => setActiveCategory(category.id)}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 font-medium text-sm transition-colors ${
+            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 font-medium text-sm transition-colors font-mono ${
               activeCategory === category.id
-                ? "text-primary border-b-2 border-primary -mb-px"
-                : "text-muted-foreground hover:text-foreground"
+                ? "text-zinc-900 border-b-2 border-zinc-900 -mb-px"
+                : "text-zinc-500 hover:text-zinc-900"
             }`}
           >
             {category.icon}
@@ -52,12 +52,12 @@ const MenuSection: React.FC<MenuSectionProps> = ({
         ))}
       </div>
 
-      <div className="overflow-y-auto flex-1 p-4">
+      <div className="overflow-y-auto flex-1 p-4 bg-zinc-50">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {items.map((item) => (
             <div
               key={`${item.name}-${item.id}`}
-              className="p-4 rounded-lg bg-card hover:bg-accent/10 transition-colors border"
+              className="p-4 rounded-lg bg-white hover:bg-zinc-100 transition-colors border border-zinc-200 font-mono"
             >
               <div className="flex justify-between mb-2">
                 <h3 className="font-medium">{item.name}</h3>
@@ -65,7 +65,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
               </div>
               
               {item.description && (
-                <p className="text-sm text-muted-foreground mb-3">
+                <p className="text-sm text-zinc-500 mb-3">
                   {item.description}
                 </p>
               )}
@@ -80,7 +80,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
                       <div className="flex items-center">
                         <span className="text-sm">{variant.name}</span>
                         {variant.price > item.price && (
-                          <span className="text-xs ml-2 text-muted-foreground">
+                          <span className="text-xs ml-2 text-zinc-500">
                             +${(variant.price - item.price).toFixed(2)}
                           </span>
                         )}
@@ -88,7 +88,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
                       <div className="flex items-center space-x-1">
                         {getItemCount(item.name, variant.name) > 0 && (
                           <>
-                            <span className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded">
+                            <span className="text-xs font-medium bg-zinc-200 text-zinc-800 px-2 py-0.5 rounded">
                               {getItemCount(item.name, variant.name)}
                             </span>
                             <span className="px-1">·</span>
@@ -101,7 +101,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
                             category: activeCategory,
                             variant: variant.name
                           })}
-                          className="text-xs px-2 py-1 bg-primary/10 hover:bg-primary/20 text-primary rounded font-medium transition-colors"
+                          className="text-xs px-2 py-1 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 rounded font-medium transition-colors"
                         >
                           Add
                         </button>
@@ -113,7 +113,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
                 <div className="flex items-center justify-end mt-2">
                   {getItemCount(item.name) > 0 && (
                     <>
-                      <span className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded mr-2">
+                      <span className="text-xs font-medium bg-zinc-200 text-zinc-800 px-2 py-0.5 rounded mr-2">
                         {getItemCount(item.name)}
                       </span>
                       <span className="px-1">·</span>
@@ -125,7 +125,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
                       price: item.price,
                       category: activeCategory
                     })}
-                    className="text-xs px-2 py-1 bg-primary/10 hover:bg-primary/20 text-primary rounded font-medium transition-colors"
+                    className="text-xs px-2 py-1 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 rounded font-medium transition-colors"
                   >
                     Add
                   </button>

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -7,6 +6,7 @@ import ReceiptPreview from "@/components/ReceiptPreview";
 import { OrderItem } from "@/types/cafe";
 import { toast } from "sonner";
 import { generateOrderId } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
 
 const CafeApp = () => {
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
@@ -15,18 +15,15 @@ const CafeApp = () => {
 
   const addToOrder = (item: Omit<OrderItem, "id" | "quantity">) => {
     setOrderItems((prev) => {
-      // Check if item already exists in order
       const existingItem = prev.find((i) => i.name === item.name && i.variant === item.variant);
       
       if (existingItem) {
-        // Increment quantity if item exists
         return prev.map((i) => 
           i.name === item.name && i.variant === item.variant 
             ? { ...i, quantity: i.quantity + 1 } 
             : i
         );
       } else {
-        // Add new item with quantity 1
         return [...prev, { ...item, id: generateOrderId(), quantity: 1 }];
       }
     });
@@ -66,18 +63,18 @@ const CafeApp = () => {
   return (
     <div className="w-full max-w-6xl mx-auto">
       <header className="mb-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Café Receipt Generator</h1>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 font-mono">TERMINAL CAFÉ RECEIPT GENERATOR</h1>
         <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
-          Select menu items to create a beautiful, modern receipt for your café
+          Select menu items to create a vintage-style receipt for your café
         </p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="overflow-hidden border-none shadow-lg">
+        <Card className="overflow-hidden border-zinc-200 shadow-lg bg-white">
           <Tabs defaultValue="menu" className="w-full">
-            <TabsList className="w-full grid grid-cols-2">
-              <TabsTrigger value="menu">Menu Selection</TabsTrigger>
-              <TabsTrigger value="customize">Order Details</TabsTrigger>
+            <TabsList className="w-full grid grid-cols-2 bg-zinc-100">
+              <TabsTrigger value="menu" className="data-[state=active]:bg-zinc-900 data-[state=active]:text-white">Menu Items</TabsTrigger>
+              <TabsTrigger value="customize" className="data-[state=active]:bg-zinc-900 data-[state=active]:text-white">Order Details</TabsTrigger>
             </TabsList>
             <TabsContent value="menu" className="p-0">
               <CardContent className="p-0">
@@ -93,26 +90,24 @@ const CafeApp = () => {
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="customerName" className="text-sm font-medium">
+                      <label htmlFor="customerName" className="text-sm font-medium font-mono">
                         Customer Name
                       </label>
-                      <input
+                      <Input
                         id="customerName"
-                        type="text"
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        className="font-mono"
                         placeholder="Customer name"
                         value={customerName}
                         onChange={(e) => setCustomerName(e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="tableNumber" className="text-sm font-medium">
+                      <label htmlFor="tableNumber" className="text-sm font-medium font-mono">
                         Table Number
                       </label>
-                      <input
+                      <Input
                         id="tableNumber"
-                        type="text"
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        className="font-mono"
                         placeholder="Table number"
                         value={tableNumber}
                         onChange={(e) => setTableNumber(e.target.value)}
@@ -122,9 +117,9 @@ const CafeApp = () => {
                 </div>
                 
                 <div className="mt-6">
-                  <h3 className="text-lg font-semibold mb-3">Current Order</h3>
+                  <h3 className="text-lg font-semibold mb-3 font-mono">Current Order</h3>
                   {orderItems.length === 0 ? (
-                    <div className="text-center py-6 text-muted-foreground">
+                    <div className="text-center py-6 text-muted-foreground font-mono">
                       No items added to the order yet
                     </div>
                   ) : (
@@ -132,26 +127,26 @@ const CafeApp = () => {
                       {orderItems.map((item) => (
                         <div 
                           key={item.id} 
-                          className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg"
+                          className="flex items-center justify-between p-3 bg-zinc-100 rounded-lg font-mono"
                         >
                           <div>
                             <div className="font-medium">{item.name}</div>
                             {item.variant && (
-                              <div className="text-sm text-muted-foreground">{item.variant}</div>
+                              <div className="text-sm text-zinc-500">{item.variant}</div>
                             )}
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="flex items-center space-x-1">
                               <button 
                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                className="w-6 h-6 flex items-center justify-center rounded bg-primary/10 hover:bg-primary/20 text-primary font-medium"
+                                className="w-6 h-6 flex items-center justify-center rounded bg-zinc-200 hover:bg-zinc-300 text-zinc-700 font-medium"
                               >
                                 -
                               </button>
                               <span className="w-8 text-center font-medium">{item.quantity}</span>
                               <button 
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="w-6 h-6 flex items-center justify-center rounded bg-primary/10 hover:bg-primary/20 text-primary font-medium"
+                                className="w-6 h-6 flex items-center justify-center rounded bg-zinc-200 hover:bg-zinc-300 text-zinc-700 font-medium"
                               >
                                 +
                               </button>
@@ -169,14 +164,14 @@ const CafeApp = () => {
                         </div>
                       ))}
                       
-                      <div className="flex justify-between pt-3 font-medium border-t">
+                      <div className="flex justify-between pt-3 font-medium border-t border-zinc-200 font-mono">
                         <span>Total</span>
                         <span>${total.toFixed(2)}</span>
                       </div>
                       
                       <button
                         onClick={clearOrder}
-                        className="w-full mt-4 py-2 rounded-md border border-destructive/30 text-destructive hover:bg-destructive/10 transition-colors"
+                        className="w-full mt-4 py-2 rounded-md border border-destructive/30 text-destructive hover:bg-destructive/10 transition-colors font-mono"
                       >
                         Clear Order
                       </button>
@@ -188,7 +183,7 @@ const CafeApp = () => {
           </Tabs>
         </Card>
 
-        <Card className="border-none shadow-lg overflow-hidden">
+        <Card className="border-zinc-200 shadow-lg overflow-hidden bg-white">
           <CardContent className="p-0">
             <ReceiptPreview 
               orderItems={orderItems} 

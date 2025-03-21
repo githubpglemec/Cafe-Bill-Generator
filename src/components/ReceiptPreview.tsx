@@ -35,13 +35,15 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
       <html>
         <head>
           <title>Cafe Receipt</title>
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
           <style>
             body {
-              font-family: 'Inter', sans-serif;
+              font-family: 'Space Mono', 'Courier Prime', monospace;
               padding: 2rem;
               max-width: 350px;
               margin: 0 auto;
+              background-color: #f3f3f3;
             }
             * {
               box-sizing: border-box;
@@ -50,6 +52,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
               body {
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
+                background-color: white;
               }
             }
           </style>
@@ -112,7 +115,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
 
   return (
     <div className="h-[600px] flex flex-col">
-      <div className="p-4 border-b bg-black text-white flex justify-between items-center">
+      <div className="p-4 border-b bg-zinc-900 text-white flex justify-between items-center">
         <h2 className="font-semibold">Receipt Preview</h2>
         <div className="flex space-x-2">
           <Button 
@@ -133,46 +136,46 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto bg-[#fcfcfc] p-4 flex justify-center">
+      <div className="flex-1 overflow-y-auto bg-zinc-100 p-4 flex justify-center">
         <div 
           ref={receiptRef}
-          className="w-full max-w-[350px] bg-white shadow-lg p-8 font-inter"
+          className="w-full max-w-[350px] bg-white shadow-lg p-8 font-mono border border-zinc-200"
         >
           <div className="text-center mb-6">
-            <h1 className="text-lg font-bold tracking-tight">MINIMA CAFÉ</h1>
-            <p className="text-xs text-gray-500 mt-1">123 Design Boulevard</p>
-            <p className="text-xs text-gray-500">Aesthetic City, AC 10001</p>
+            <h1 className="text-lg font-bold tracking-tight uppercase">TERMINAL CAFÉ</h1>
+            <p className="text-xs text-zinc-600 mt-1">123 Command Line Blvd</p>
+            <p className="text-xs text-zinc-600">CodeCity, CC 10001</p>
           </div>
 
           <div className="mb-6 text-sm">
             <div className="flex justify-between items-center mb-1">
-              <span className="text-gray-600">Date:</span>
+              <span className="text-zinc-600">Date:</span>
               <span>{formatDate(new Date(), "MMM dd, yyyy")}</span>
             </div>
             <div className="flex justify-between items-center mb-1">
-              <span className="text-gray-600">Time:</span>
+              <span className="text-zinc-600">Time:</span>
               <span>{formatDate(new Date(), "h:mm a")}</span>
             </div>
             {customerName && (
               <div className="flex justify-between items-center mb-1">
-                <span className="text-gray-600">Customer:</span>
+                <span className="text-zinc-600">Customer:</span>
                 <span>{customerName}</span>
               </div>
             )}
             {tableNumber && (
               <div className="flex justify-between items-center mb-1">
-                <span className="text-gray-600">Table:</span>
+                <span className="text-zinc-600">Table:</span>
                 <span>#{tableNumber}</span>
               </div>
             )}
             <div className="flex justify-between items-center">
-              <span className="text-gray-600">Order #:</span>
+              <span className="text-zinc-600">Order #:</span>
               <span>{Math.floor(10000 + Math.random() * 90000)}</span>
             </div>
           </div>
 
-          <div className="border-t border-b border-gray-200 py-4 mb-4">
-            <div className="flex justify-between text-xs font-semibold text-gray-500 mb-2 pb-2 border-b border-gray-100">
+          <div className="border-t border-b border-dashed border-zinc-400 py-4 mb-4">
+            <div className="flex justify-between text-xs font-semibold text-zinc-600 mb-2 pb-2 border-b border-dotted border-zinc-300">
               <span>ITEM</span>
               <div className="flex w-24">
                 <span className="w-8 text-center">QTY</span>
@@ -187,7 +190,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
                     <div className="flex-1">
                       <div className="font-medium">{item.name}</div>
                       {item.variant && (
-                        <div className="text-xs text-gray-500">{item.variant}</div>
+                        <div className="text-xs text-zinc-500">{item.variant}</div>
                       )}
                     </div>
                     <div className="flex w-24">
@@ -200,7 +203,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
                 ))}
               </div>
             ) : (
-              <div className="text-center py-6 text-gray-400 italic text-sm">
+              <div className="text-center py-6 text-zinc-500 italic text-sm">
                 No items in order
               </div>
             )}
@@ -208,22 +211,23 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
 
           <div className="space-y-1 text-sm mb-6">
             <div className="flex justify-between">
-              <span className="text-gray-600">Subtotal</span>
+              <span className="text-zinc-600">Subtotal</span>
               <span>${getSubtotal().toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Tax (8%)</span>
+              <span className="text-zinc-600">Tax (8%)</span>
               <span>${getTax().toFixed(2)}</span>
             </div>
-            <div className="flex justify-between font-semibold pt-3 border-t mt-2">
+            <div className="flex justify-between font-semibold pt-3 mt-2 border-t border-dotted border-zinc-400">
               <span>TOTAL</span>
               <span>${getGrandTotal().toFixed(2)}</span>
             </div>
           </div>
 
-          <div className="text-center text-xs text-gray-500 mt-8">
-            <p className="mb-1">Thank you for visiting Minima Café</p>
-            <p>We hope to see you again soon!</p>
+          <div className="text-center text-xs text-zinc-600 mt-8">
+            <p className="mb-1">Thank you for visiting Terminal Café</p>
+            <p className="mb-4">We hope to see you again soon!</p>
+            <p className="text-zinc-400 text-[10px]">* * * * * * * * * * * * * * * * * * * * * * * *</p>
           </div>
         </div>
       </div>
