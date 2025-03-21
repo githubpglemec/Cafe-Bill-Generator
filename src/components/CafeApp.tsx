@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -63,7 +64,7 @@ const CafeApp = () => {
   return (
     <div className="w-full max-w-6xl mx-auto">
       <header className="mb-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 font-mono">TERMINAL CAFÉ RECEIPT GENERATOR</h1>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 font-mono">HIMALAYAN CAFÉ RECEIPT GENERATOR</h1>
         <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
           Select menu items to create a vintage-style receipt for your café
         </p>
@@ -152,7 +153,7 @@ const CafeApp = () => {
                               </button>
                             </div>
                             <div className="font-medium w-16 text-right">
-                              ${(item.price * item.quantity).toFixed(2)}
+                              Rs. {(item.price * item.quantity).toFixed(2)}
                             </div>
                             <button 
                               onClick={() => removeItem(item.id)}
@@ -166,7 +167,7 @@ const CafeApp = () => {
                       
                       <div className="flex justify-between pt-3 font-medium border-t border-zinc-200 font-mono">
                         <span>Total</span>
-                        <span>${total.toFixed(2)}</span>
+                        <span>Rs. {total.toFixed(2)}</span>
                       </div>
                       
                       <button

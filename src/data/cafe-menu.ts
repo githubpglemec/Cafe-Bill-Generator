@@ -3,169 +3,173 @@ export const cafeMenu = {
   drinks: [
     {
       id: 1,
-      name: "Espresso",
-      price: 3.50,
-      description: "Rich and concentrated coffee served in a small cup",
+      name: "Himalayan Tea",
+      price: 120,
+      description: "Traditional Nepali tea with milk, sugar, and spices",
       variants: [
-        { name: "Single", price: 3.50 },
-        { name: "Double", price: 4.50 }
+        { name: "Regular", price: 120 },
+        { name: "Large", price: 150 }
       ]
     },
     {
       id: 2,
-      name: "Cappuccino",
-      price: 4.75,
-      description: "Espresso with steamed milk and a thick layer of foam",
+      name: "Masala Chiya",
+      price: 100,
+      description: "Spiced milk tea with cardamom, cinnamon and cloves",
       variants: [
-        { name: "Small", price: 4.75 },
-        { name: "Medium", price: 5.25 },
-        { name: "Large", price: 5.75 }
+        { name: "Regular", price: 100 },
+        { name: "Large", price: 130 }
       ]
     },
     {
       id: 3,
-      name: "Latte",
-      price: 4.50,
-      description: "Espresso with steamed milk and a light layer of foam",
+      name: "Lassi",
+      price: 190,
+      description: "Traditional yogurt-based drink, sweet or salty",
       variants: [
-        { name: "Small", price: 4.50 },
-        { name: "Medium", price: 5.00 },
-        { name: "Large", price: 5.50 }
+        { name: "Sweet", price: 190 },
+        { name: "Salty", price: 190 },
+        { name: "Mango", price: 220 }
       ]
     },
     {
       id: 4,
-      name: "Americano",
-      price: 3.75,
-      description: "Espresso diluted with hot water",
+      name: "Espresso",
+      price: 150,
+      description: "Rich and concentrated coffee served in a small cup",
       variants: [
-        { name: "Small", price: 3.75 },
-        { name: "Medium", price: 4.25 },
-        { name: "Large", price: 4.75 }
+        { name: "Single", price: 150 },
+        { name: "Double", price: 200 }
       ]
     },
     {
       id: 5,
-      name: "Matcha Latte",
-      price: 5.50,
-      description: "Japanese green tea powder with steamed milk",
+      name: "Butter Tea",
+      price: 180,
+      description: "Traditional Himalayan tea made with yak butter and salt",
       variants: [
-        { name: "Small", price: 5.50 },
-        { name: "Medium", price: 6.00 },
-        { name: "Large", price: 6.50 }
+        { name: "Regular", price: 180 },
+        { name: "Large", price: 220 }
       ]
     },
     {
       id: 6,
-      name: "Fresh Orange Juice",
-      price: 4.95,
-      description: "Freshly squeezed orange juice",
+      name: "Fresh Juice",
+      price: 180,
+      description: "Freshly squeezed seasonal fruits",
       variants: [
-        { name: "Regular", price: 4.95 },
-        { name: "Large", price: 5.95 }
+        { name: "Orange", price: 180 },
+        { name: "Apple", price: 170 },
+        { name: "Sugarcane", price: 150 }
       ]
     }
   ],
   food: [
     {
       id: 7,
-      name: "Avocado Toast",
-      price: 8.95,
-      description: "Sourdough bread with smashed avocado, cherry tomatoes and microgreens"
+      name: "Momo",
+      price: 220,
+      description: "Steamed dumplings filled with spiced meat or vegetables",
+      variants: [
+        { name: "Chicken", price: 220 },
+        { name: "Buff", price: 240 },
+        { name: "Veg", price: 190 }
+      ]
     },
     {
       id: 8,
-      name: "Croissant Sandwich",
-      price: 9.95,
-      description: "Butter croissant with scrambled eggs, cheese and your choice of protein",
+      name: "Sel Roti",
+      price: 100,
+      description: "Traditional Nepali ring-shaped sweet bread/doughnut",
       variants: [
-        { name: "Bacon", price: 9.95 },
-        { name: "Ham", price: 9.95 },
-        { name: "Vegetarian", price: 8.95 }
+        { name: "Single", price: 100 },
+        { name: "Pair", price: 180 }
       ]
     },
     {
       id: 9,
-      name: "Acai Bowl",
-      price: 10.95,
-      description: "Acai blend topped with granola, fresh fruits, and honey"
+      name: "Samay Baji",
+      price: 350,
+      description: "Traditional Newari dish with beaten rice, meat, and spices"
     },
     {
       id: 10,
-      name: "Chicken Caesar Salad",
-      price: 12.95,
-      description: "Romaine lettuce, grilled chicken, croutons, and Caesar dressing"
+      name: "Chhoila",
+      price: 280,
+      description: "Spicy grilled meat dish typically served with beaten rice",
+      variants: [
+        { name: "Chicken", price: 280 },
+        { name: "Buff", price: 300 }
+      ]
     }
   ],
   desserts: [
     {
       id: 11,
-      name: "Chocolate Croissant",
-      price: 4.25,
-      description: "Butter croissant filled with chocolate"
+      name: "Juju Dhau",
+      price: 150,
+      description: "King of yogurt, a creamy sweetened yogurt from Bhaktapur"
     },
     {
       id: 12,
-      name: "Tiramisu",
-      price: 6.95,
-      description: "Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream"
+      name: "Kheer",
+      price: 180,
+      description: "Traditional Nepali rice pudding with nuts and cardamom"
     },
     {
       id: 13,
-      name: "Cheesecake",
-      price: 6.50,
-      description: "Creamy cheesecake with a graham cracker crust",
+      name: "Yomari",
+      price: 200,
+      description: "Steamed rice flour dumplings filled with sweet molasses",
       variants: [
-        { name: "Plain", price: 6.50 },
-        { name: "Strawberry", price: 7.00 },
-        { name: "Chocolate", price: 7.00 }
+        { name: "Chaku", price: 200 },
+        { name: "Khuwa", price: 230 }
       ]
     },
     {
       id: 14,
-      name: "Macaron Set",
-      price: 8.95,
-      description: "Set of 4 assorted French macarons"
+      name: "Lakhamari",
+      price: 150,
+      description: "Traditional sweet fried bread from Newar cuisine"
     }
   ],
-  alcohol: [
+  specials: [
     {
       id: 15,
-      name: "Mimosa",
-      price: 8.95,
-      description: "Champagne and fresh orange juice"
+      name: "Thakali Set",
+      price: 450,
+      description: "Complete Nepali meal with rice, lentils, and various sides"
     },
     {
       id: 16,
-      name: "White Wine",
-      price: 9.95,
-      description: "Glass of house white wine",
+      name: "Sekuwa",
+      price: 320,
+      description: "Nepali style grilled marinated meat pieces",
       variants: [
-        { name: "Chardonnay", price: 9.95 },
-        { name: "Sauvignon Blanc", price: 10.95 },
-        { name: "Pinot Grigio", price: 9.95 }
+        { name: "Chicken", price: 320 },
+        { name: "Mutton", price: 380 },
+        { name: "Pork", price: 350 }
       ]
     },
     {
       id: 17,
-      name: "Red Wine",
-      price: 9.95,
-      description: "Glass of house red wine",
+      name: "Thukpa",
+      price: 280,
+      description: "Tibetan noodle soup with vegetables and meat",
       variants: [
-        { name: "Cabernet Sauvignon", price: 10.95 },
-        { name: "Merlot", price: 9.95 },
-        { name: "Pinot Noir", price: 11.95 }
+        { name: "Chicken", price: 280 },
+        { name: "Veg", price: 230 }
       ]
     },
     {
       id: 18,
-      name: "Craft Beer",
-      price: 7.95,
-      description: "Bottle of local craft beer",
+      name: "Chatamari",
+      price: 250,
+      description: "Traditional Newari rice flour 'pizza' with toppings",
       variants: [
-        { name: "IPA", price: 7.95 },
-        { name: "Lager", price: 7.95 },
-        { name: "Stout", price: 8.95 }
+        { name: "Egg", price: 250 },
+        { name: "Minced Meat", price: 280 },
+        { name: "Mixed", price: 300 }
       ]
     }
   ]

@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Coffee, UtensilsCrossed, Wine, Cookie } from "lucide-react";
+import { Coffee, UtensilsCrossed, Cookie, Star } from "lucide-react";
 import { OrderItem } from "@/types/cafe";
 import { cafeMenu } from "@/data/cafe-menu";
 
@@ -21,7 +21,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
     { id: "drinks", label: "Drinks", icon: <Coffee size={18} /> },
     { id: "food", label: "Food", icon: <UtensilsCrossed size={18} /> },
     { id: "desserts", label: "Desserts", icon: <Cookie size={18} /> },
-    { id: "alcohol", label: "Alcohol", icon: <Wine size={18} /> },
+    { id: "specials", label: "Specials", icon: <Star size={18} /> },
   ];
 
   // Get items in current category
@@ -61,7 +61,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
             >
               <div className="flex justify-between mb-2">
                 <h3 className="font-medium">{item.name}</h3>
-                <span className="font-semibold">${item.price.toFixed(2)}</span>
+                <span className="font-semibold">Rs. {item.price.toFixed(2)}</span>
               </div>
               
               {item.description && (
@@ -81,7 +81,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({
                         <span className="text-sm">{variant.name}</span>
                         {variant.price > item.price && (
                           <span className="text-xs ml-2 text-zinc-500">
-                            +${(variant.price - item.price).toFixed(2)}
+                            +Rs. {(variant.price - item.price).toFixed(2)}
                           </span>
                         )}
                       </div>

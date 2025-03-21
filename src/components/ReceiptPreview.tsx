@@ -106,7 +106,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
   };
 
   const getTax = () => {
-    return total * 0.08; // 8% tax
+    return total * 0.13; // 13% VAT in Nepal
   };
 
   const getGrandTotal = () => {
@@ -142,9 +142,9 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
           className="w-full max-w-[350px] bg-white shadow-lg p-8 font-mono border border-zinc-200"
         >
           <div className="text-center mb-6">
-            <h1 className="text-lg font-bold tracking-tight uppercase">TERMINAL CAFÉ</h1>
-            <p className="text-xs text-zinc-600 mt-1">123 Command Line Blvd</p>
-            <p className="text-xs text-zinc-600">CodeCity, CC 10001</p>
+            <h1 className="text-lg font-bold tracking-tight uppercase">HIMALAYAN CAFÉ</h1>
+            <p className="text-xs text-zinc-600 mt-1">Thamel, Kathmandu</p>
+            <p className="text-xs text-zinc-600">Nepal</p>
           </div>
 
           <div className="mb-6 text-sm">
@@ -169,7 +169,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
               </div>
             )}
             <div className="flex justify-between items-center">
-              <span className="text-zinc-600">Order #:</span>
+              <span className="text-zinc-600">Bill #:</span>
               <span>{Math.floor(10000 + Math.random() * 90000)}</span>
             </div>
           </div>
@@ -196,7 +196,7 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
                     <div className="flex w-24">
                       <span className="w-8 text-center">{item.quantity}</span>
                       <span className="flex-1 text-right">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        Rs. {(item.price * item.quantity).toFixed(2)}
                       </span>
                     </div>
                   </div>
@@ -212,21 +212,21 @@ const ReceiptPreview: React.FC<ReceiptPreviewProps> = ({
           <div className="space-y-1 text-sm mb-6">
             <div className="flex justify-between">
               <span className="text-zinc-600">Subtotal</span>
-              <span>${getSubtotal().toFixed(2)}</span>
+              <span>Rs. {getSubtotal().toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-zinc-600">Tax (8%)</span>
-              <span>${getTax().toFixed(2)}</span>
+              <span className="text-zinc-600">VAT (13%)</span>
+              <span>Rs. {getTax().toFixed(2)}</span>
             </div>
             <div className="flex justify-between font-semibold pt-3 mt-2 border-t border-dotted border-zinc-400">
               <span>TOTAL</span>
-              <span>${getGrandTotal().toFixed(2)}</span>
+              <span>Rs. {getGrandTotal().toFixed(2)}</span>
             </div>
           </div>
 
           <div className="text-center text-xs text-zinc-600 mt-8">
-            <p className="mb-1">Thank you for visiting Terminal Café</p>
-            <p className="mb-4">We hope to see you again soon!</p>
+            <p className="mb-1">धन्यवाद - Thank you for visiting</p>
+            <p className="mb-4">Please come again!</p>
             <p className="text-zinc-400 text-[10px]">* * * * * * * * * * * * * * * * * * * * * * * *</p>
           </div>
         </div>
